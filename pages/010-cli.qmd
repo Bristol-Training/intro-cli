@@ -1,0 +1,70 @@
+---
+title: The Unix Command Line
+---
+
+
+Unix systems are powerful, multi-user operating systems that have had a profound impact on modern computing since their development in the 1970s at Bell Labs. Unix, Linux, BSD, and macOS are all related operating systems that share a common heritage and many similar features. 
+
+Unix introduced several key concepts such a command-line interface (shell) and the core philosophy that **"everything is a file"**. This may sound strange, but it basically means that the system handles input/output to and from various resources as streams of bytes exposed through the filesystem. For instance, Unix defines three Standard Streams:
+
+- *stdin* (0): Standard input, by default the keyboard input
+- *stdout* (1): Standard output, by defult your terminal output on the screen
+- *stderr* (2): Standard error, by defult also your terminal output, but on a separate different stream
+
+This approach provides a consistent interface for interacting with various system resources and the flexibility to use and combine the same commands and tools across different types of *files*.
+
+
+**Print to Terminal**
+
+The command `echo` prints text to the terminal (by default *stdout*), useful in scripts and for displaying variable values and messages.
+
+```bash
+echo "Hello, Shell!"
+```
+
+We will see the concept of redirections in the next sections, but given that everything is a file, we could redirect our output in the terminal to a file
+```bash
+echo "Hello, Shell!" > hello.txt
+```
+
+
+
+::: {#keypointsN .callout-tip icon=false title='Command line basics'}
+
+- The command line is case-sensitive. The letter `H` is entirely different from `h`, for example! So if you are having issues, always check your capitalisation is correct.
+- You can select, cut etc with the mouse cursor, but you cannot move the position of your typing cursor with the mouse! You can only do that with the arrow keys. This is because a remote machine can only understand plain text, not communications from your mouse.
+- You can use *tab* to auto-complete: it will save you lots of time and typos.
+- You can scroll back through your previous commands with the *up arrow* (and *down arrow*) - another big time-saver.
+- If it looks like the terminal is stuck, or you want to cancel a command, it is `Ctrl-c`.
+- To exit a terminal session, type `exit`.
+:::
+
+
+
+
+### The grammar of the command line
+
+Bash grammar refers to the syntax and structure of commands and scripts in the Bash shell. The basic command syntax will look like 
+
+```
+command [options] [arguments]
+```
+
+where `options` is commonly set of flags like `-a`, and `arguments` are other parameters and file names. For example:
+
+```bash
+ls -l /home/user
+```
+
+
+### Getting help on the command line
+
+Much of your knowledge about commands will of course come from the Internet, but you can also look up help and manuals on the command line itself. They are called `man` pages,
+short for “manual”. When you run this command, for example
+
+```bash
+man ls
+```
+
+You will get description and instructions on what the command does, how to use it, and what flags it can take. Some `man` pages are better than others, but it is good to get familiar with them, and get a feel for how documentation is structured. When you search for a command on the internet, often the best results are just the `man` pages, presented in a webpage, which might be easier to understand and search through.
+

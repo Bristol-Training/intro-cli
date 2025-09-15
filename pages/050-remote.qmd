@@ -1,0 +1,44 @@
+---
+title: Working remotely
+---
+
+
+The original *super-power* of the command line is that it allows us to connect to other machines. While today we have remote-desktops and screen-shares to see and work with other computer’s GUIs, the command line has been doing this since the 1960s!
+
+In research, we often work on remote machines (“computing clusters”, “HPC”, “supercomputers”, or even just “servers”), which we need to log in to. Once we are logged in, the terminal will behave as if we are sitting at that machine, which might be on the other side of the world. 
+
+
+## Using `ssh`
+
+`ssh` is a program for opening a command line session on a remote computer. The name is short for “secure shell”, because it opens a shell to communicate with a remote machine on the same network, using an encrypted, secure connection.
+
+```bash
+ssh us01234@bc4login.acrc.bris.ac.uk
+```
+
+After executing something like the above command, you will then be asked to enter your password - it will not display anything or display stars (*) as you type. If the password is correct, you will then see a new prompt, including the name of the machine you are now logged in to, for example:
+
+```bash
+[us01234@bc4login3 ~]$
+```
+
+`ssh` can be used for more than just remote login, it can also execute commands remotely without starting an interactive session.
+
+
+
+## Copying files to and from remote machines using scp
+
+`scp` (“secure copy”) is just like `cp`, except it can copy files and folders to and from another computer. `scp` is built on top of SSH and provides a secure way to transfer files, ensuring data confidentiality during transit.
+
+Just like with cp, you can copy the contents of folders with the flag `-r`.
+
+```bash
+# Copy local file to remote host
+scp local_file.txt us01234@bc4login.acrc.bris.ac.uk:/remote/path/
+
+# Copy remote file to local system
+scp us01234@bc4login.acrc.bris.ac.uk:/remote/file.txt /local/path/
+
+# Copy entire directory recursively
+scp -r /local/directory us01234@bc4login.acrc.bris.ac.uk:/remote/path/
+```

@@ -1,0 +1,81 @@
+---
+title: The file system
+---
+
+The file system provides a structured way to name and organize files, typically using a hierarchical directory structure. Below there are some of the basic commands to move around.
+
+## Print Working Directory
+
+The `pwd` command prints the current working directory *path*.
+
+```bash
+pwd
+```
+```
+/users/home/us01234
+```
+
+## Change Directory
+
+Use `cd` to navigate between directories:
+
+- `cd directory_name`: Move into a specific directory
+- `cd ..`: Move up one directory level
+- `cd ~`: Go to home directory
+
+::: {#keypoints1 .callout-tip icon=false title='Location abbreviations'}
+
+- `~` *tilde*, your home folder (also `$HOME`)
+- `.` *dot*, your current working folder
+- `..` *dot dot*, one folder *up* or *back* from here
+- `-` *dash*, the folder you were most recently in
+- `/` *root*, the folder containing the whole file system
+- if we type `cd` alone it will always take you back to your `$HOME`
+:::
+
+
+## List Directory Contents
+
+The `ls` command lists files and directories in the current location. Common options include:
+
+- `ls -a`: List all files, including hidden ones
+- `ls -l`: Long listing with details like permissions and timestamps
+
+```.bash
+us01234@myMacBook course-cli % ls                                     
+```
+```
+README.md		answers			data			requirements.txt
+_extensions		appendix		index.qmd		style.scss
+_quarto.yml		assets			pages
+```
+
+```.bash
+us01234@myMacBook course-cli % ls -a                                    
+```
+```
+.			    .gitignore		appendix		requirements.txt
+..		 	    README.md		assets			style.scss
+.DS_Store		_extensions		data
+.git			_quarto.yml		index.qmd
+.github			answers			pages
+```
+
+You can also use list filtering for specific file names or patterns.
+
+```.bash
+us01234@myMacBook course-cli % ls -la *.txt
+```
+```
+-rw-r--r--@ 1 gx18744  staff  15 26 Sep 02:06 requirements.txt                                   
+```
+
+::: {#keypoints1 .callout-tip icon=false title='Special characters'}
+- `*` wildcard (any characters): `ls *.txt`
+- `?` wildcard (single character): `ls file?.txt`
+- `[]` character set wildcard: `ls file[123].txt`
+- `{}` brace expansion: `echo {1..5}`
+:::
+
+
+

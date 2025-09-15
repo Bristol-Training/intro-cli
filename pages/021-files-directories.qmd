@@ -1,0 +1,176 @@
+---
+title: Managing files and directories
+---
+
+
+
+## Creating new files and directories
+
+**Make a directory**
+
+You can create new directories with the `mkdir` command:
+
+```bash
+mkdir my_new_directory
+```
+
+
+**Create an empty file**
+
+The `touch` command creates a new empty file or updates timestamps (modification time) of existing files:
+
+```bash
+touch new_file.txt
+```
+
+## Copying and moving
+
+
+::: {#warning .callout-warning icon=true title='Warning'}
+
+The commands `cp`, `mv` and `rm` need to be used with care, **all have the potential to cause permanent data loss!**
+
+If, for example, a file `data.txt` already exists, the command
+```bash
+cp new_data.txt data.txt
+```
+would overwrite `data.txt` with the contents of `new_data.txt` permanently deleting the contents of `data.txt`!  Likewise, `rm` doesn't have a recycle bin, undo or any other safety-nets.
+
+:::
+
+
+
+**Copy**
+
+We can copy files or directories with `cp`. Note that to copy (non-empty) directories you will need to use the *flag* `-r`.
+
+```bash
+cp file1.txt file1_backup.txt
+cp -r sourcedir/ destdir/
+```
+
+**Move/Rename**
+
+Move or rename files and directories is done with `mv`.
+
+```bash
+mv old_name.txt new_name.txt
+mv file.txt /path/to/new/location/
+```
+
+## Deleting files and directories
+
+In Unix, the deletion of files and directories is done with the command `rm`. If a folder is not empty, we need to delete all the contents before or use the flag `-r`.
+
+```bash
+rm file.txt
+rm -r directory/
+```
+
+
+
+## Viewing File Contents
+
+**Concatenate and Display**
+
+The `cat` command displays file contents in the terminal:
+
+```bash
+cat my_file.txt
+```
+
+**Paginated File Viewing**
+
+`less` allows scrolling through large files[1]:
+
+```bash
+less large_file.log
+```
+
+**View first or last lines**
+
+`head` ad `tail` commands are useful for quickly inspecting the contents of large files, monitoring log files, or extracting specific portions of text data.
+
+The `head` command displays the first part of files.
+
+```bash
+# Display first 10 lines of a file
+head file.txt
+
+# Display first 15 lines of multiple files
+head -n 15 file1.txt file2.txt
+```
+
+The `tail` command displays the last part of files.
+
+```bash
+# Display last 10 lines of a file
+tail file.txt
+
+# Display last 20 lines of a file
+tail -n 20 file.txt
+
+# Display last 5 lines of multiple files
+tail -n 5 file1.txt file2.txt
+```
+
+
+
+## Other commands
+
+There are many other commands useful for processing and manipulating text files in Bash.
+
+**Word Count**
+
+The wc command is used to count lines `-l`, words `-w`, and characters `-m` in files.
+
+```bash
+wc -l file.txt  # Count lines in file.txt
+```
+
+**Sort**
+
+The `sort` command is used to sort lines of text files.
+
+```bash
+sort file.txt  
+
+sort -n numbers.txt  # Sort numbers numerically
+```
+
+**Cut**
+
+The cut command is used to extract sections from each line of files. Some of the common options are:
+`-c` selects specific characters, `-f` selects specific fields, `-d` specifies the delimiter.
+
+```bash
+cut -f1,3 -d',' data.csv  # Extract 1st and 3rd comma-separated fields
+```
+
+
+
+::: {#ex1 .callout-note icon=false title='Exercise'}
+
+- Create a folder called `sandpit` and enter it.
+
+- Download and *unzip* the below dataset with gene expression data of 42 ER- and ER+ breast cancer patients.
+
+    ```bash
+    wget https://ftp.ncbi.nlm.nih.gov/geo/datasets/GDS3nnn/GDS3716/soft/GDS3716.soft.gz
+    gunzip GDS3716.soft.gz
+    ```
+
+- Inspect the file format of the uncompressed file.
+
+- How long is the file?
+
+- Are you able identify where the header finishes and starts the data?
+
+- What do you think the below command does? You can try executing it.
+
+    ```bash
+    cut -f2,4-6 -d$'\t' GDS3716.soft             
+    ```
+
+- Make a copy of it to keep our raw data safe.
+:::

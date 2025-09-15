@@ -1,0 +1,97 @@
+---
+title: Redirection and pipes
+---
+
+
+Bash redirection and pipes are powerful features that allow you to control input and output streams, and chain commands together.
+
+
+## Redirection
+
+Redirection allows you to control where input comes from and where output goes.
+
+**Output Redirection**
+
+- `>`: Redirect *stdout* to a file (overwrite)
+- `>>`: Redirect *stdout* to a file (append)
+- `2>`: Redirect *stderr* to a file
+- `&>`: Redirect both *stdout* and *stderr* to a file
+
+```bash
+# Redirect stdout to a file
+echo "Hello" > output.txt
+
+# Append stdout to a file
+echo "World" >> output.txt
+
+# Redirect stderr to a file
+ls non_existent_file 2> error.log
+
+# Redirect both stdout and stderr to different files
+command > output.txt 2> error.log
+
+# Redirect both stdout and stderr to the same file
+command &> output_and_error.log
+```
+
+**Input Redirection**
+
+- `<`: Redirect input from a file
+
+```bash
+# Use file content as input
+sort < unsorted_list.txt
+```
+
+::: {#warning .callout-warning icon=true title='Warning'}
+Be careful! Redirects can overwrite the target file.
+
+```bash
+echo "Hello, Bash!" > output.txt
+```
+If `output.txt` already existed, it would be permanently overwritten by the above command.
+
+:::
+
+
+## Pipes
+
+Pipes (`|`) allow you to send the output of one command as input to another command.
+
+**Syntax:**
+```bash
+command1 | command2 | command3
+```
+
+**Examples:**
+```bash
+# Count number of files in a directory
+ls | wc -l
+
+# Find the 5 largest files in a directory
+du -h | sort -rh | head -5
+```
+
+## Combining Redirection and Pipes
+
+You can combine redirection and pipes for more complex operations:
+
+```bash
+# Search for a pattern, sort results, remove duplicates and save to a file
+grep "error" log.txt | sort | uniq > unique_errors.txt
+
+```
+
+
+
+::: {#exampleN .callout-note icon=false title='Exercise'}
+
+- In our sandpit, create a new file from GDS3716.soft that has only the expression values for the first 5 patients and sort the genes (rows) by the expression levels of the last patient included.
+
+- Try running the below command. Can you identify what happened?
+ 
+```bash
+cut -f4-6 -d'\t' GDS3716.soft 2> subset_gds3716.soft
+```
+
+:::

@@ -1,0 +1,55 @@
+---
+title: Searching
+---
+
+
+## Finding files
+
+The `find` command searches for files in a directory hierarchy:
+
+- Find files by name: `find /path/to/search -name "filename"`
+- Find files by type: `find /path/to/search -type f`
+
+For example, to find all `.txt` files in the current directory and subdirectories:
+
+```bash
+find . -name "*.txt"
+```
+
+Find has multiple options that can be very useful to find files with known characteristics other than name, for instance 
+
+- `-size` searches by file size
+
+   ```bash
+   find /path -size +10M  # Files larger than 10MB
+   find /path -size -1k   # Files smaller than 1KB
+   ```
+- `-mtime` searches by modification time
+
+   ```bash
+   find /path -mtime -7  # Files modified in the last 7 days
+   ```
+
+
+## Locate command
+
+There's a special *tool* that allows us to find the path of a command. `which` finds the location of a command's executable
+
+```bash
+which python
+```
+
+
+## Searching inside files
+
+
+The command `grep` (Global Regular Expression Print) allows us to search for patterns inside files:
+
+```bash
+grep "search_term" */*.py
+```
+
+
+::: {#ex1 .callout-note icon=false title='Exercise'}
+Search in the sandpit folder for any files that contain *TP53*.
+:::

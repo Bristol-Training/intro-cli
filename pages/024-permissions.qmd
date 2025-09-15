@@ -1,0 +1,83 @@
+---
+title: Permissions
+---
+
+Unix file permissions are a fundamental aspect of system security and access control. While this course does not delve into detailed system administration, understanding the basics of file permissions is crucial for effective Unix system usage.
+
+
+## Permission Structure
+
+The `ls -la` command is used to list files and directories with detailed information, including file permissions that are represented by 10-character strings at the begining of each line.
+
+```.bash
+us01234@myMacBook course-cli % ls -la                                      
+```
+```
+total 72
+drwxr-xr-x@ 17 us01234  staff   544 26 Sep 02:35 .
+drwxr-xr-x  10 us01234  staff   320  8 Oct 09:32 ..
+-rw-r--r--@  1 us01234  staff  8196  3 Oct 23:58 .DS_Store
+drwxr-xr-x@ 15 us01234  staff   480  3 Oct 23:58 .git
+drwxr-xr-x@  3 us01234  staff    96 26 Sep 02:06 .github
+-rw-r--r--@  1 us01234  staff    32 26 Sep 02:06 .gitignore
+-rw-r--r--@  1 us01234  staff   428 26 Sep 02:06 README.md
+drwxr-xr-x@  3 us01234  staff    96 26 Sep 02:06 _extensions
+-rw-r--r--@  1 us01234  staff  1458 26 Sep 02:06 _quarto.yml
+drwxr-xr-x@ 19 us01234  staff   608 26 Sep 02:36 answers
+drwxr-xr-x@ 11 us01234  staff   352 26 Sep 02:06 appendix
+drwxr-xr-x@ 13 us01234  staff   416 26 Sep 02:06 assets
+drwxr-xr-x@  5 us01234  staff   160 26 Sep 02:06 data
+-rw-r--r--@  1 us01234  staff  3357 26 Sep 02:06 index.qmd
+drwxr-xr-x@ 17 us01234  staff   544 26 Sep 02:06 pages
+-rw-r--r--@  1 us01234  staff    15 26 Sep 02:06 requirements.txt
+-rw-r--r--@  1 us01234  staff   645 26 Sep 02:06 style.scss
+```
+
+The first character indicates the file type:
+
+   - `-` regular file
+   - `d` directory
+   - `l` symbolic link
+
+The next nine characters represent permissions for three categories of users:
+
+   - Owner (user)
+   - Group
+   - Others (everyone else)
+
+For each category, there are three types of permissions:
+
+   - `r` read permission
+   - `w` write permission
+   - `x` execute permission for files, or access permission for directories
+
+
+
+**Permission representation**
+
+Permissions can also be written numerically as the sum of a 3-bit binary number:
+
+   - r (read) = 4 (binary 100)
+   - w (write) = 2 (binary 010)
+   - x (execute) = 1 (binary 001)
+
+
+Some common permission sets are:
+
+   - `644` (-rw-r--r--): Standard for regular files
+   - `755` (-rwxr-xr-x): Standard for directories and executable files
+   - `600` (-rw-------): Private file, readable and writable only by owner
+
+
+
+## Changing Permissions
+
+The `chmod` command is used to modify permissions
+
+```bash
+chmod 644 file.txt
+chmod u+x script.sh
+```
+
+Only the file owner or an administrator can change file permissions.
+

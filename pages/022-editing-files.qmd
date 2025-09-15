@@ -1,0 +1,37 @@
+---
+title: Editing files
+---
+
+There are many text editors that can be used in Linux and Unix systems command line. Two of the most popular ones are `nano` and `vim`.
+
+## Nano
+
+Nano is a simple, user-friendly text editor ideal for quick edits. It's designed to be easy to use, especially for beginners. It provides an intuitive interface with on-screen shortcuts and basic text editing functions like cut, copy, paste. 
+
+Basic usage:
+
+- Open/create a file: `nano filename`
+- Edit text directly
+- Save: `Ctrl+O`
+- Exit: `Ctrl+X`
+
+
+## Vim
+
+Vim (Vi IMproved) is a highly configurable text editor built to enable efficient text editing. It has more powerful features than Nano but has a steeper learning curve.
+Vim uses a dual mode editing interface (normal and insert) that allow powerful search and replace capabilities.
+
+Basic usage:
+
+- Open/create a file: `vim filename`
+- Enter insert mode: Press *i*
+- Exit insert mode: Press *Esc*
+- Save: `:w` in normal mode
+- Exit: `:q` in normal mode
+- Save and exit: `:wq` in normal mode
+
+
+
+::: {#ex1 .callout-note icon=false title='Exercise'}
+Make a copy of `GDS3716.soft` and remove the header of the new file with `nano` or `vim`.
+:::

@@ -1,0 +1,64 @@
+---
+title: Introduction
+---
+
+
+
+Welcome to this introduction to the Command Line Interface (CLI)! This course covers a foundation for many computational skills: the *UNIX-like* (sometimes *\*nix*) command line. This is used by Linux, MacOS, most servers, as well as nearly all HPC and computing clusters.
+
+Here we will explore the most widely used Linux CLI *Bash* (*Bourne Again Shell*) that is default shell in most Linux distributions. Window’s default command line is run by *Powershell*, which we do not cover in this course. Windows can emulate a UNIX-like terminal, so please continue to learn more.
+
+
+### Intended learning outcomes
+
+By the end of this course, you will:
+
+- Understand the glossary relevant to the command line
+- Know how to create, move and delete files and directories
+- Be familiar with command line editors such as `nano` and `vim`
+- Know how to search within directories, and within files
+- Have the skills to create a simple shell scripts
+
+
+## Starting a terminal
+
+When you open a terminal, you will be provided with a line for entering commands, starting with a *prompt*. “Explorer”. Here is what a typical prompt looks like:
+
+```bash
+[us01234@laptop: us01234] $
+```
+
+Your prompt may look a bit different, but here is what it means:
+
+[ **your_name** @ **host_name** : **current_folder** ] $
+
+First is your own user name. On UoB computers, it might be a code like in your email address, such as `us01234`. After the **\@** comes the computer’s name (or *hostname*). This could be something like `myMacBook` or `ubuntu`, for example. Note that this is the name of the computer that you are logged in, your computer or the name of a remote machine when using HPC. Finally, we have the folder you are working in, after the *:*. Yours might say **~** (“tilde”) - find out what that means in the next sections.
+
+The **$** (or you might have a **%**) symbol means the terminal is waiting for a command. Sometimes you will see commands on the internet which include the $ symbol at the start of the command - you don’t need to include this as part of the command, say if you cut and paste!
+
+
+
+
+
+
+
+```
+
+
+          _nnnn_                      
+         dGGGGMMb     ,"""""""""""""".
+        @p~qp~~qMb    | Linux Rules! |
+        M|@||@) M|   _;..............'
+        @,----.JM| -'
+       JS^\__/  qKL
+      dZP        qKRb
+     dZP          qKKb
+    fZP            SMMb
+    HZM            MMMM
+    FqM            MMMM
+  __| ".        |\dS"qML
+  |    `.       | `' \Zq
+ _)      \.___.,|     .'
+ \____   )MMMMMM|   .'
+      `-'       `--' hjm
+```

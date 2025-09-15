@@ -1,0 +1,10 @@
+---
+title: Contributors
+---
+
+Parts of this course are based on the materials written by Al Tanner, see <https://altanner.github.io/intro-to-command-line/>.
+
+The course has been developed by the Jean Golding Institute. 
+
+* Al Tanner
+* Pau Erola
